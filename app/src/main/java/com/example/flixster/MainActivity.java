@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                     movies.addAll(Movie.fromJsonArray(results)); //modify the existing list of movies
                     //let adapter know data changes so adapter can re-render it
                     movieAdapter.notifyDataSetChanged();
-                    Log.i(TAG,"Movies: " + movies.size());
+                    Log.i(TAG,"Movies : " + movies.size());
 
                 } catch (JSONException e) {
                     Log.e(TAG,"Hit json exception", e);

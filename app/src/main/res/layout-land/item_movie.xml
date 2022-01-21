@@ -24,6 +24,7 @@
         android:layout_marginTop="10dp"
         android:layout_toEndOf="@+id/ivPoster"
         android:textSize="24sp"
+        android:textStyle="bold"
         tools:text="Fast and Furious Presents: Hobbs Shaw" />
 
     <TextView
