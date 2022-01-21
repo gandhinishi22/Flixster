@@ -1,6 +1,7 @@
 package com.example.flixster.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,18 +27,20 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
         this.movies = movies;
     }
 
-    // Usually involves inflating a layout from XML and returning the holder
+    // Usually involves inflating a layout from XML and returning the holder (expensive)
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Log.d("MovieAdapter","onCreateViewHolder");
         View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie,parent,false);
 
         return new ViewHolder(movieView);
     }
 
-    //Involves populating data into the item through holder
+    //Involves populating data into the item through holder (cheap)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Log.d("MovieAdapter","onBindViewHolder" + position);
         //Get the movie at the passed position
         Movie movie = movies.get(position);
         //Bind the movie data in the View Holder
