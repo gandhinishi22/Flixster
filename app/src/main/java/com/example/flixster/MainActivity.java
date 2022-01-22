@@ -1,9 +1,12 @@
 package com.example.flixster;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -33,6 +36,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Flixster Movie List");
+        actionBar.setSubtitle("Part One - By Nishi Gandhi ");
+
+        ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#950F63"));
+        actionBar.setBackgroundDrawable(colorDrawable);
+
+
 
         //Define Recycler View
         RecyclerView rvMovies = findViewById(R.id.rvMovies);
