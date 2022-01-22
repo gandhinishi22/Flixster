@@ -82,7 +82,8 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder> 
                 imageURL = movie.getPosterPath();
             }
 
-            Glide.with(context).load(imageURL).into(ivPoster);
+            Glide.with(context).load(imageURL).placeholder(R.drawable.hour).into(ivPoster);
+            //Glide.with(context).load(imageURL).into(ivPoster);
 
         }
     }
