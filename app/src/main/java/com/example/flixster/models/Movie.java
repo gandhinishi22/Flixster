@@ -13,6 +13,7 @@ public class Movie {
     String posterPath;
     String title;
     String overview;
+    double vote;
 
     //Parse data
     public Movie(JSONObject jsonObject) throws JSONException {
@@ -20,6 +21,8 @@ public class Movie {
         posterPath = jsonObject.getString("poster_path");
         title = jsonObject.getString("title");
         overview = jsonObject.getString("overview");
+        vote = jsonObject.getDouble("vote_average");
+
     }
 
     //constructs movie for each element in JSON Array
@@ -39,6 +42,8 @@ public class Movie {
     public String getBackdropPath() {
         return String.format("https://image.tmdb.org/t/p/w342/%s",backdropPath);
     }
+
+    public double getVote() {  return vote; }
 
     public String getTitle() {
         return title;
