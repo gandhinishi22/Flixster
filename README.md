@@ -8,7 +8,6 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 ## Flix Part 1
 
 ### User Stories
-`TODO://` In the **User Stories section below**, add an `x` in the `-[ ]` like this `- [x]` for any user story you complete. (🚫 Remove this paragraph after after checking off completed user stories)
 
 #### REQUIRED (10pts)
 - [x] (10pts) User can view a list of movies (title, poster image, and overview) currently playing in theaters from the Movie Database API.
@@ -25,11 +24,11 @@ Flix is an app that allows users to browse movies from the [The Movie Database A
 ### App Walkthough GIF
 Required and Basic Stretch Stories (Landscape Orientation and Placeholder)
 
-<img src='walkthroughg.gif' title='Video Walkthrough' width='480' alt='Video Walkthrough' />
+<img src='walkthroughi.gif' title='Video Walkthrough' width='780' alt='Video Walkthrough' />
 
 Popular Movies Stretch Story
 
-<img src='walkthroughf.gif' title='Video Walkthrough' width='480' alt='Video Walkthrough' />
+<img src='walkthroughf.gif' title='Video Walkthrough' width='780' alt='Video Walkthrough Two' />
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
