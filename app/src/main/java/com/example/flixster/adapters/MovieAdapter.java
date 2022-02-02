@@ -1,6 +1,7 @@
 package com.example.flixster.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.media.Image;
 import android.util.Log;
@@ -8,16 +9,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.flixster.DetailActivity;
 import com.example.flixster.R;
 import com.example.flixster.models.Movie;
 
+import org.parceler.Parcels;
+
 import java.util.List;
+
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
 
 public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -110,6 +118,7 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        RelativeLayout container;
         TextView tvTitle;
         TextView tvOverview;
         ImageView ivPoster;
@@ -119,6 +128,7 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvOverview = itemView.findViewById(R.id.tvOverview);
             ivPoster = itemView.findViewById(R.id.ivPoster);
+            container = itemView.findViewById(R.id.container);
         }
 
         public void bind(Movie movie) {
@@ -136,19 +146,39 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
                 imageURL = movie.getPosterPath();
             }
 
-            Glide.with(context).load(imageURL).placeholder(R.drawable.hour).into(ivPoster);
+            int radius = 30;
+            int margin = 5;
+
+            Glide.with(context).load(imageURL).placeholder(R.drawable.hour).transform(new RoundedCornersTransformation(radius,margin)).into(ivPoster);
             //Glide.with(context).load(imageURL).into(ivPoster);
 
+
+            //1. Register the click listener on the whole row
+
+            container.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //2. Navigate to a new activity on tap
+                    //Toast.makeText(context,movie.getTitle(),Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(context, DetailActivity.class);
+                    //i.putExtra("title",movie.getTitle());
+                    i.putExtra("movie", Parcels.wrap(movie));
+
+                    context.startActivity(i);
+                }
+            });
         }
     }
 
     public class ViewHolder1 extends RecyclerView.ViewHolder {
 
+        RelativeLayout container;
         ImageView ivPoster;
 
         public ViewHolder1(@NonNull View itemView) {
             super(itemView);
             ivPoster = (ImageView) itemView.findViewById(R.id.ivPoster);
+            container = itemView.findViewById(R.id.container);
         }
 
         public void bindIt(Movie movie)
@@ -156,6 +186,18 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
             String imageURL;
             imageURL = movie.getBackdropPath();
             Glide.with(context).load(imageURL).placeholder(R.drawable.hour).into(ivPoster);
+            container.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //2. Navigate to a new activity on tap
+                    //Toast.makeText(context,movie.getTitle(),Toast.LENGTH_SHORT).show();
+                    Intent i = new Intent(context, DetailActivity.class);
+                    //i.putExtra("title",movie.getTitle());
+                    i.putExtra("movie", Parcels.wrap(movie));
+
+                    context.startActivity(i);
+                }
+            });
         }
 
 
