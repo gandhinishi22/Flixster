@@ -25,9 +25,12 @@ public class DetailActivity extends YouTubeBaseActivity {
 
     public static final String YOUTUBE_API_KEY = "AIzaSyDilpYQVFGLZKCsOPSIp-el-GNHnRG9Kt4";
     public static final String VIDEOS_URL = "https://api.themoviedb.org/3/movie/%d/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
+    public double voteMe;
 
     TextView tvTitle;
     TextView tvOverview;
+    TextView tvRelease;
+    TextView tvAdult;
     RatingBar ratingBar;
     YouTubePlayerView youTubePlayerView;
 
@@ -38,6 +41,8 @@ public class DetailActivity extends YouTubeBaseActivity {
 
         tvTitle = findViewById(R.id.textTitle);
         tvOverview = findViewById(R.id.textOverview);
+        tvRelease = findViewById(R.id.textRelease);
+        tvAdult = findViewById(R.id.textAdult);
         ratingBar = findViewById(R.id.ratingBar);
         youTubePlayerView = findViewById(R.id.player);
 
@@ -46,7 +51,10 @@ public class DetailActivity extends YouTubeBaseActivity {
         Movie movie = Parcels.unwrap(getIntent().getParcelableExtra("movie"));
         tvTitle.setText(movie.getTitle());
         tvOverview.setText(movie.getOverview());
+        tvRelease.setText("Release Date: "+movie.getReleaseDate());
+        tvAdult.setText("Is Adult: "+movie.isAdult());
         ratingBar.setRating((float)movie.getVote());
+        voteMe = movie.getVote();
 
         AsyncHttpClient client = new AsyncHttpClient();
         client.get(String.format(VIDEOS_URL,movie.getMovieId()), new JsonHttpResponseHandler() {
@@ -82,7 +90,13 @@ public class DetailActivity extends YouTubeBaseActivity {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 Log.d("DetailActivity","onInitializationSuccess");
-                youTubePlayer.cueVideo(youtubeKey);
+                if (voteMe > 8)
+                {
+                    youTubePlayer.loadVideo(youtubeKey);
+                }
+                else {
+                    youTubePlayer.cueVideo(youtubeKey);
+                }
             }
 
             @Override

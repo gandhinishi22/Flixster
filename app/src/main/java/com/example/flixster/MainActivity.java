@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Flixster Movie List");
-        actionBar.setSubtitle("Part One - By Nishi Gandhi ");
+        actionBar.setSubtitle("Part Two - By Nishi Gandhi ");
 
         ColorDrawable colorDrawable = new ColorDrawable(Color.parseColor("#950F63"));
         actionBar.setBackgroundDrawable(colorDrawable);

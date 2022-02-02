@@ -103,7 +103,7 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
 
     @Override
     public int getItemViewType(int position) {
-        if (movies.get(position).getVote() > 5) {
+        if (movies.get(position).getVote() > 8) {
             return 0;
         }
         return 1;
@@ -185,7 +185,9 @@ public class MovieAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
         {
             String imageURL;
             imageURL = movie.getBackdropPath();
-            Glide.with(context).load(imageURL).placeholder(R.drawable.hour).into(ivPoster);
+            int rad = 30;
+            int mar = 5;
+            Glide.with(context).load(imageURL).placeholder(R.drawable.hour).transform(new RoundedCornersTransformation(rad,mar)).into(ivPoster);
             container.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

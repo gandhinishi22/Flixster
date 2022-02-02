@@ -12,6 +12,8 @@ import java.util.List;
 public class Movie {
 
     int movieId;
+    String releaseDate;
+    boolean isAdult;
     String backdropPath;
     String posterPath;
     String title;
@@ -30,6 +32,8 @@ public class Movie {
         overview = jsonObject.getString("overview");
         vote = jsonObject.getDouble("vote_average");
         movieId = jsonObject.getInt("id");
+        releaseDate = jsonObject.getString("release_date");
+        isAdult = jsonObject.getBoolean("adult");
 
     }
 
@@ -63,5 +67,13 @@ public class Movie {
 
     public int getMovieId() {
         return movieId;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public boolean isAdult() {
+        return isAdult;
     }
 }

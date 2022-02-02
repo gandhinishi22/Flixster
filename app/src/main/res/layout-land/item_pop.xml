@@ -23,9 +23,9 @@
         android:layout_alignTop="@+id/ivPoster"
         android:layout_alignEnd="@+id/ivPoster"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="288dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="279dp"
+        android:layout_marginStart="286dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="281dp"
         app:srcCompat="@android:drawable/ic_media_play" />
 
 </RelativeLayout>

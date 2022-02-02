@@ -30,8 +30,23 @@
         android:rating="8.5" />
 
     <TextView
+        android:id="@+id/textRelease"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        tools:text="2021-12-15" />
+
+    <TextView
+        android:id="@+id/textAdult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        tools:text="False or True" />
+
+    <TextView
         android:id="@+id/textOverview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:text="Peter Parker is unmasked and no longer able to separate his normal life from the high-stakes of being a super-hero. When he asks for help from Doctor Strange the stakes become even more dangerous, forcing him to discover what it truly means to be Spider-Man." />
+
 </LinearLayout>
