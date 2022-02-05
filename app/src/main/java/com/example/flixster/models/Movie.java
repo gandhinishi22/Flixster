@@ -18,6 +18,7 @@ public class Movie {
     String posterPath;
     String title;
     String overview;
+    double pop;
     double vote;
 
 
@@ -32,6 +33,7 @@ public class Movie {
         overview = jsonObject.getString("overview");
         vote = jsonObject.getDouble("vote_average");
         movieId = jsonObject.getInt("id");
+        pop = jsonObject.getDouble("popularity");
         releaseDate = jsonObject.getString("release_date");
         isAdult = jsonObject.getBoolean("adult");
 
@@ -76,4 +78,6 @@ public class Movie {
     public boolean isAdult() {
         return isAdult;
     }
+
+    public double getPop() { return pop; }
 }

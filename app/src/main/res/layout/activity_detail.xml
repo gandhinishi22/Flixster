@@ -37,6 +37,12 @@
         tools:text="2021-12-15" />
 
     <TextView
+        android:id="@+id/textPopularity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="1234.67" />
+
+    <TextView
         android:id="@+id/textAdult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

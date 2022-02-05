@@ -30,6 +30,7 @@ public class DetailActivity extends YouTubeBaseActivity {
     TextView tvTitle;
     TextView tvOverview;
     TextView tvRelease;
+    TextView tvPop;
     TextView tvAdult;
     RatingBar ratingBar;
     YouTubePlayerView youTubePlayerView;
@@ -43,6 +44,7 @@ public class DetailActivity extends YouTubeBaseActivity {
         tvOverview = findViewById(R.id.textOverview);
         tvRelease = findViewById(R.id.textRelease);
         tvAdult = findViewById(R.id.textAdult);
+        tvPop = findViewById(R.id.textPopularity);
         ratingBar = findViewById(R.id.ratingBar);
         youTubePlayerView = findViewById(R.id.player);
 
@@ -53,6 +55,7 @@ public class DetailActivity extends YouTubeBaseActivity {
         tvOverview.setText(movie.getOverview());
         tvRelease.setText("Release Date: "+movie.getReleaseDate());
         tvAdult.setText("Is Adult: "+movie.isAdult());
+        tvPop.setText("Popularity: "+movie.getPop());
         ratingBar.setRating((float)movie.getVote());
         voteMe = movie.getVote();
 
